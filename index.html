@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Birthday Card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #card {
+      position: relative;
+      width: 360px;
+      height: 720px;
+     background: url('./assets/birthday-bg.png');
+
+      overflow: hidden;
+    }
+    #photo {
+      position: absolute;
+      top: 170px;
+      left: 45px;
+      width: 270px;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    #name {
+      position: absolute;
+      top: 460px;
+      width: 100%;
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 26px;
+    }
+    #message {
+      position: absolute;
+      bottom: 40px;
+      width: 80%;
+      left: 10%;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .controls {
+      margin-top: 20px;
+      text-align: center;
+    }
+    input, textarea, button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div id="card">
+      <img id="photo" src="" alt="Upload" />
+      <div id="name">Juliana Silva</div>
+      <div id="message">Wishing you a day filled with joy and a year filled with happiness. Enjoy your special day!</div>
+    </div>
+
+    <div class="controls">
+      <input type="file" accept="image/*" onchange="loadPhoto(event)" /> <br />
+      <input type="text" placeholder="Enter Name" oninput="updateName(this.value)" /> <br />
+      <textarea placeholder="Enter your message" oninput="updateMessage(this.value)"></textarea><br />
+      <button onclick="downloadCard()">Download Card</button>
+    </div>
+  </div>
+
+  <script>
+    const loadPhoto = (event) => {
+      const photo = document.getElementById('photo');
+      photo.src = URL.createObjectURL(event.target.files[0]);
+    };
+
+    const updateName = (value) => {
+      document.getElementById('name').innerText = value;
+    };
+
+    const updateMessage = (value) => {
+      document.getElementById('message').innerText = value;
+    };
+
+    const downloadCard = () => {
+      html2canvas(document.getElementById('card')).then((canvas) => {
+        const link = document.createElement('a');
+        link.download = 'birthday-card.png';
+        link.href = canvas.toDataURL();
+        link.click();
+      });
+    };
+  </script>
+</body>
+</html>
