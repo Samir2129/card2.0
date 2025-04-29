@@ -4,22 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Card Maker</title>
-  <script>
-  function setCategory(category) {
-    // Show the main content container
-    document.getElementById("main-container").classList.remove("hidden");
-
-    // Sab formats ko pehle hide karo (yaha agar future me aur formats hon to unka bhi add karna padega)
-    document.getElementById("birthday-format-1").style.display = "none";
-
-    // Ab check karo ki user ne konsa category select kiya
-    if (category === "birthday") {
-      document.getElementById("birthday-format-1").style.display = "block";
-    }
-
-    // Aage chalkar agar tum friendship, anniversary, thank you ke naye formats banaoge to unke liye bhi yaha if blocks banaoge
-  }
-</script>
 
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -37,13 +21,11 @@
     <button onclick="setCategory('anniversary')" class="bg-pink-400 hover:bg-pink-500 text-white font-medium py-2 px-4 rounded-xl">Anniversary 💑</button>
     <button onclick="setCategory('thankyou')" class="bg-pink-400 hover:bg-pink-500 text-white font-medium py-2 px-4 rounded-xl">Thank You 🙏</button>
   </div>
-<div class="card-button">
-  <a href="birthday-format.html" class="btn" target="_blank">
-    🎂 Try New Birthday Format
-  </a>
+
 </div>
   <div id="main-container" class="hidden grid md:grid-cols-2 gap-12 w-full max-w-6xl">
     <!-- Birthday Card Format 1 -->
+     <div id="main-container" class="hidden grid md:grid-cols-2 gap-12 w-full max-w-6xl">
 <div id="birthday-format-1" class="relative w-[400px] h-[800px] bg-no-repeat bg-contain bg-center" 
      style="background-image: url('./assets/birthday-bg.png'); display: none;">
   <input type="file" id="uploadImage" accept="image/*" class="absolute top-[245px] left-[85px] w-[230px] h-[230px] opacity-0 cursor-pointer" />
