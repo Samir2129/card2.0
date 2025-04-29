@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birthday Card Format</title>
+  <link href="https://fonts.googleapis.com/css2?family=Brittany+Signature&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff7f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    .card-container {
+      position: relative;
+      width: 360px;
+      height: 640px;
+      background-image: url('./assets/birthday-bg.png');
+      background-size: cover;
+      background-position: center;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      overflow: hidden;
+    }
+    .card-text {
+      position: absolute;
+      top: 220px;
+      width: 100%;
+      text-align: center;
+      font-size: 28px;
+      font-family: 'Brittany Signature', cursive;
+      color: #d94e66;
+    }
+    .card-message {
+      position: absolute;
+      bottom: 100px;
+      width: 90%;
+      left: 5%;
+      text-align: center;
+      font-size: 16px;
+      color: #333;
+      white-space: pre-wrap;
+    }
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 360px;
+    }
+    input, textarea, button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #d94e66;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #c63c55;
+    }
+  </style>
+</head>
+<body>
+  <div class="card-container" id="card">
+    <div class="card-text" id="card-name">Your Name</div>
+    <div class="card-message" id="card-message">Your message goes here...</div>
+  </div>
+
+  <div class="controls">
+    <input type="text" id="nameInput" placeholder="Enter Name" />
+    <textarea id="messageInput" rows="4" placeholder="Enter Message"></textarea>
+    <button onclick="updateCard()">Update Card</button>
+    <button onclick="downloadCard()">Download as Image</button>
+  </div>
+
+  <script>
+    function updateCard() {
+      const name = document.getElementById('nameInput').value;
+      const message = document.getElementById('messageInput').value;
+      document.getElementById('card-name').textContent = name || 'Your Name';
+      document.getElementById('card-message').textContent = message || 'Your message goes here...';
+    }
+
+    function downloadCard() {
+      html2canvas(document.getElementById("card")).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'birthday_card.png';
+        link.href = canvas.toDataURL();
+        link.click();
+      });
+    }
+  </script>
+</body>
+</html>
