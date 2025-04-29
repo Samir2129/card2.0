@@ -4,6 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Card Maker</title>
+  <script>
+  function setCategory(category) {
+    // Show the main content container
+    document.getElementById("main-container").classList.remove("hidden");
+
+    // Sab formats ko pehle hide karo (yaha agar future me aur formats hon to unka bhi add karna padega)
+    document.getElementById("birthday-format-1").style.display = "none";
+
+    // Ab check karo ki user ne konsa category select kiya
+    if (category === "birthday") {
+      document.getElementById("birthday-format-1").style.display = "block";
+    }
+
+    // Aage chalkar agar tum friendship, anniversary, thank you ke naye formats banaoge to unke liye bhi yaha if blocks banaoge
+  }
+</script>
+
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
@@ -21,6 +38,19 @@
   </div>
 
   <div id="main-container" class="hidden grid md:grid-cols-2 gap-12 w-full max-w-6xl">
+    <!-- Birthday Card Format 1 -->
+<div id="birthday-format-1" class="relative w-[400px] h-[800px] bg-no-repeat bg-contain bg-center" 
+     style="background-image: url('./assets/birthday-bg.png'); display: none;">
+  <input type="file" id="uploadImage" accept="image/*" class="absolute top-[245px] left-[85px] w-[230px] h-[230px] opacity-0 cursor-pointer" />
+  <img id="previewImage" class="absolute top-[245px] left-[85px] w-[230px] h-[230px] object-cover rounded-md" />
+  
+  <input id="nameText" class="absolute top-[500px] left-[85px] w-[230px] text-center text-[24px] font-[Dancing Script], cursive bg-transparent outline-none" placeholder="Enter Name"/>
+  
+  <textarea id="messageText" class="absolute bottom-[100px] left-4 right-4 text-center text-[16px] bg-transparent outline-none resize-none">
+Wishing you a day filled with joy and a year filled with happiness. Enjoy your special day!
+  </textarea>
+</div>
+
     <div class="bg-white rounded-3xl shadow-2xl p-8 flex flex-col gap-6 border border-pink-200">
       <input id="nameInput" placeholder="Recipient's Name" class="rounded-xl border-pink-300 focus:ring-pink-400 text-lg border px-4 py-2" />
       <textarea id="messageInput" placeholder="Write your message..." rows="5" class="rounded-xl border-pink-300 focus:ring-pink-400 text-lg border px-4 py-2"></textarea>
