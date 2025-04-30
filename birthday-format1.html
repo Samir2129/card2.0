@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Birthday Card Editor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head><body>
+<header>
+  <a href="index.html" class="logo">Card Designer</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="birthday.html">Birthday</a>
+    <a href="anniversary.html">Anniversary</a>
+    <a href="thankyou.html">Thank You</a>
+    <a href="occasion.html">Occasion</a>
+  </nav>
+</header>
+<div class="card-container" id="card">
+  <img src="assets/birthday-bg.png" class="background"/>
+  <div class="photo-frame"><img id="photoPreview" class="photo-preview"/><input type="file" id="photoInput" accept="image/*"/></div>
+  <div class="name" contenteditable="true">Juliana Silva</div>
+  <div class="message" contenteditable="true">Wishing you a day filled with joy and a year filled with happiness. Enjoy your special day!</div>
+</div>
+<div class="controls">
+  <button onclick="downloadCard()">Download</button>
+  <button onclick="shareWhatsApp()">Share on WhatsApp</button>
+</div>
+<footer>
+  <p>&copy; 2025 Card Designer. All rights reserved.</p>
+  <p><a href="#">Privacy Policy</a> | <a href="#">Terms</a> | <a href="#">Contact</a></p>
+</footer>
+<script src="script.js"></script>
+</body></html>

@@ -1,0 +1,32 @@
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Poppins', sans-serif; background: #f4f4f4; }
+header, footer { background: white; }
+header { padding:20px 50px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+header .logo { font-size:28px; font-weight:700; color:#6c3fc7; text-decoration:none; }
+nav a { margin-left:20px; color:#555; font-weight:600; text-decoration:none; transition:color .3s; }
+nav a:hover { color:#6c3fc7; }
+main { padding:40px 50px; }
+.hero { text-align:center; margin-bottom:40px; }
+.hero h2 { font-size:36px; color:#4a148c; margin-bottom:10px; }
+.hero p { font-size:18px; color:#555; }
+.categories { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
+.category { background:white; border-radius:20px; overflow:hidden; box-shadow:0 10px 20px rgba(0,0,0,0.1); transition:transform .3s; text-decoration:none; color:inherit; }
+.category:hover { transform:translateY(-5px); }
+.category img { width:100%; height:160px; object-fit:cover; }
+.category h3 { font-size:20px; color:#6c3fc7; padding:15px; }
+footer { padding:20px 50px; text-align:center; font-size:14px; color:#777; box-shadow:0 -2px 8px rgba(0,0,0,0.1); }
+.formats { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; padding:40px 50px; }
+.format-card { background:white; border-radius:20px; overflow:hidden; box-shadow:0 10px 20px rgba(0,0,0,0.1); text-align:center; transition:transform .3s; cursor:pointer; }
+.format-card:hover { transform:translateY(-5px); }
+.format-card img { width:100%; height:160px; object-fit:cover; }
+.format-card h3 { font-size:18px; color:#4a148c; padding:15px; }
+.card-container { position:relative; width:360px; height:640px; margin:40px auto; }
+.background { width:100%; height:100%; position:absolute; top:0; left:0; z-index:1; }
+.photo-frame { position:absolute; top:160px; left:45px; width:270px; height:270px; z-index:2; display:flex; flex-direction:column; align-items:center; }
+.photo-preview { width:100%; height:100%; object-fit:cover; border-radius:8px; display:none; }
+#photoInput { margin-top:5px; z-index:3; }
+.name { position:absolute; top:440px; width:100%; text-align:center; font-family:'Dancing Script',cursive; font-size:26px; color:black; z-index:2; }
+.message { position:absolute; top:490px; width:100%; text-align:center; padding:0 20px; font-size:14px; color:#333; z-index:2; }
+.controls { text-align:center; margin-top:20px; }
+.controls button { margin:0 10px; padding:10px 20px; border:none; border-radius:5px; background:#6c3fc7; color:white; cursor:pointer; }
